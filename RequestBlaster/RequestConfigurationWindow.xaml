@@ -1,0 +1,59 @@
+﻿<Window x:Class="RequestBlaster.RequestConfigurationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RequestBlaster"
+        mc:Ignorable="d"
+        Title="RequestConfigurationWindow" 
+        Height="180"
+        Width="800"
+        MinHeight="180"
+        MinWidth="500">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label Grid.Column="0">Request Type:</Label>
+            <ComboBox Grid.Column="1" Margin="0,0,10,0" IsEnabled="False">
+                <ComboBoxItem IsSelected="True">GET</ComboBoxItem>
+                <ComboBoxItem>POST</ComboBoxItem>
+            </ComboBox>
+            <Label Grid.Column="2">Request Endpoint URL:</Label>
+            <TextBox Grid.Column="3" Text="{Binding RequestEndpointUrl}"></TextBox>
+        </Grid>
+
+        <Grid Row="1" Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            
+            <Label Grid.Row="0" >JSON Request Body:</Label>
+            <TextBox Grid.Row="1" />
+        </Grid>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,10,0,0">
+            <Label>Request Count:</Label>
+            <TextBox Text="{Binding RequestCount}" Width="100" Height="20" VerticalAlignment="Center"></TextBox>
+            <Label>Send Method:</Label>
+            <RadioButton VerticalAlignment="Center" IsEnabled="False">Sequentially</RadioButton>
+            <RadioButton VerticalAlignment="Center" Margin="10,0,5,0" IsChecked="True" IsEnabled="False">Concurrently</RadioButton>
+        </StackPanel>
+
+        <Button Margin="0,10,0,0" x:Name="SendRequestsButton" Grid.Row="3" Height="30" Width="150" Click="SendRequestsButton_Click">Send Requests</Button>
+
+    </Grid>
+</Window>

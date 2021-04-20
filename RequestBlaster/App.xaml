@@ -1,0 +1,9 @@
+﻿<Application x:Class="RequestBlaster.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:RequestBlaster"
+             StartupUri="RequestConfigurationWindow.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
